@@ -132,9 +132,7 @@ class ProductVC: UIViewController {
             backBtn.isHidden = false
             let nonSpacingTxt = self.searchTxtView.text?.trimmingCharacters(in: .whitespaces)
             self.searchTxtView.text = nonSpacingTxt
-            print("---------")
-            print(nonSpacingTxt)
-            print("---------")
+
             ProductTapService.shared.searchProduct(keyword: nonSpacingTxt ?? " ") { data in
                 switch data {
                 case .success(let data):

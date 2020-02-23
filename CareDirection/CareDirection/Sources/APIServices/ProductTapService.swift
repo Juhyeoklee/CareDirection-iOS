@@ -18,7 +18,6 @@ struct ProductTapService {
         let header : HTTPHeaders = [
             
             "Content-Type" : "application/json",
-            //"token" : "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkeCI6NjQsImlhdCI6MTU3ODAyODgxOCwiZXhwIjo4Nzk3ODAyODgxOCwiaXNzIjoiY2FyZS1kaXJlY3Rpb24ifQ.eR-912HpB7B9JCaYwUlkaGBEphLywOoRCyT4ZZB1DMI"
             "token" : "\(token.string(forKey: "token")!)"
         ]
         
@@ -38,7 +37,6 @@ struct ProductTapService {
                                 print(value)
                                 let result = try decoder.decode(ProductTap.self, from: value)
                                 
-                                //print("success")
                                 completion(.success(result.data))
                             }
                             catch {
@@ -68,8 +66,6 @@ struct ProductTapService {
     }
     
     func getProductTop2List(component: String, completion: @escaping (NetworkResult<Any>) -> Void) {
-        
-        //let URL = APIConstants.SearchBaseURL + "?query=\(component)&filter=nutrient&limit=2"
         
          let parameters: Parameters = [
              "query": component,
